@@ -1,119 +1,184 @@
-"use client"
+"use client";
+import React from "react";
+import Image from "next/image";
+import {
+  Phone,
+  MessageCircle,
+  Instagram,
+  Linkedin,
+  Globe,
+  Mail,
+  ArrowUpRight,
+} from "lucide-react";
 
-import { useEffect, useRef } from "react"
-import { Phone, MessageCircle, Instagram, Linkedin,Globe } from "lucide-react"
-
-export function Hero() {
-  const imageRef = useRef(null)
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("animate-fade-in-up")
-        }
-      },
-      { threshold: 0.1 },
-    )
-
-    if (imageRef.current) {
-      observer.observe(imageRef.current)
-    }
-
-    return () => observer.disconnect()
-  }, [])
-
+export default function HeroSection() {
   return (
-    <section
-      id="home"
-      className="relative w-full min-h-screen flex items-center justify-center bg-background overflow-hidden"
-    >
-      <div className="w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-        <div className="grid md:grid-cols-2 gap-12 lg:gap-20 items-center py-20 md:py-0">
-          {/* Agent Image - Left Side */}
-          <div ref={imageRef} className="flex items-center justify-center order-2 md:order-1">
-            <div className="relative w-full max-w-md">
-              <div className="absolute -inset-4 bg-accent/10 rounded-2xl blur-2xl opacity-60"></div>
+    <section className="relative min-h-[90vh] w-full flex items-center justify-center bg-[#f8fafc] px-6 py-20 overflow-hidden">
+      {/* 2026 Modernist Background Elements */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+        <div className="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] rounded-full bg-gradient-to-br from-indigo-50/50 to-teal-50/30 blur-3xl" />
+        <div className="absolute bottom-[-5%] left-[-2%] w-[400px] h-[400px] rounded-full bg-gradient-to-tr from-blue-50/40 to-slate-100/50 blur-3xl" />
+      </div>
 
-              <div className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl bg-secondary/30 border border-secondary/50">
-                <img
-                  src="/farha.jpg"
-                  alt="Farha n Mirza - Luxury Real Estate Agent"
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-                  loading="lazy"
+      <div className="container mx-auto max-w-7xl relative">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          {/* CONTENT COLUMN - Asymmetric Layout */}
+          <div className="lg:col-span-7 order-2 lg:order-1">
+            <div className="relative z-10 space-y-8">
+              {/* Ultra-Modern Badge */}
+              <div className="inline-flex items-center gap-3 px-3 py-1 rounded-full bg-white/80 border border-slate-200/60 shadow-sm backdrop-blur-md">
+                <span className="flex h-2 w-2 rounded-full bg-teal-500 animate-pulse" />
+                <span className="text-[11px] font-semibold uppercase tracking-widest text-slate-500">
+                  Luxury Real Estate Advisor
+                </span>
+              </div>
+
+              {/* Typography with 2026 aesthetics */}
+              <div className="space-y-4">
+                <h1 className="text-6xl md:text-8xl font-bold tracking-tight text-slate-900 leading-[0.9]">
+                  Farha N <br />
+                  <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-teal-500">
+                    Mirza
+                  </span>
+                </h1>
+                <p className="text-xl md:text-2xl font-medium text-slate-600/90 italic">
+                  Luxury Real Estate Advisor
+                </p>
+              </div>
+
+              <p className="max-w-xl text-lg text-slate-500 leading-relaxed font-light">
+                Redefining the luxury real estate experience in Dubai. From
+                penthouse acquisitions to waterfront estates, we bridge the gap
+                between visionary architecture and discerning ownership.
+              </p>
+
+              {/* Modern Glass CTA Row */}
+              <div className="flex flex-wrap gap-4 pt-4">
+                <a
+                  href="tel:+971503466464"
+                  className="group relative flex items-center gap-2 bg-slate-900 text-white px-8 py-4 rounded-2xl overflow-hidden transition-all hover:scale-[1.02] active:scale-95"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-teal-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <Phone size={18} className="relative z-10" />
+                  <span className="relative z-10 font-medium">Call Now</span>
+                </a>
+
+                <a
+                  href="https://wa.me/971503466464"
+                  className="flex items-center gap-2 bg-white border border-slate-200 px-8 py-4 rounded-2xl text-slate-700 font-medium hover:bg-slate-50 hover:shadow-xl hover:shadow-slate-200/50 transition-all"
+                >
+                  <MessageCircle size={18} className="text-teal-500" />
+                  <span>Direct Message</span>
+                  <ArrowUpRight size={14} className="opacity-40" />
+                </a>
+              </div>
+
+              {/* Tech-Style Contact Row */}
+              <div className="pt-8 flex flex-wrap gap-x-12 gap-y-4 border-t border-slate-200/60">
+                <div className="flex flex-col gap-1">
+                  <span className="text-[10px] uppercase tracking-tighter text-slate-400 font-bold">
+                    Email Inquiries
+                  </span>
+                  <a
+                    href="mailto:farha@deenpropertiesuae.com"
+                    className="text-sm font-medium text-slate-800 hover:text-indigo-600 transition-colors"
+                  >
+                    farha@deenpropertiesuae.com
+                  </a>
+                </div>
+                <div className="flex flex-col gap-1">
+                  <span className="text-[10px] uppercase tracking-tighter text-slate-400 font-bold">
+                    Connect
+                  </span>
+
+                  <div className="flex gap-4">
+                    <a
+                      href="https://www.instagram.com/aliya_adean?igsh=MTUybXczOGRzMXNzdg=="
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Instagram
+                        size={18}
+                        className="text-slate-400 hover:text-pink-500 cursor-pointer transition-colors"
+                      />
+                    </a>
+
+                    <a
+                      href="https://www.linkedin.com/in/farha-n-162477114"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Linkedin
+                        size={18}
+                        className="text-slate-400 hover:text-blue-600 cursor-pointer transition-colors"
+                      />
+                    </a>
+
+                    <a
+                      href="https://deenpropertiesuae.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Globe
+                        size={18}
+                        className="text-slate-400 hover:text-indigo-500 cursor-pointer transition-colors"
+                      />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* IMAGE COLUMN - Floating Card Aesthetic */}
+          <div className="lg:col-span-5 order-1 lg:order-2 flex justify-center lg:justify-end">
+            <div className="relative w-full max-w-[480px]">
+              {/* Layered Glass Panels */}
+              <div className="absolute -top-10 -left-10 w-32 h-32 bg-indigo-100/50 rounded-3xl -z-10 animate-bounce-slow" />
+              <div className="absolute -bottom-10 -right-6 w-48 h-48 bg-teal-50/80 rounded-[4rem] -z-10 blur-2xl" />
+
+              {/* Main Portrait Card */}
+              <div className="relative aspect-[4/5] rounded-[2.5rem] overflow-hidden shadow-[0_32px_64px_-16px_rgba(0,0,0,0.12)] border-[8px] border-white group">
+                <Image
+                  src="/farha.jpg" // Path to farha's photo
+                  alt="farha AB Mirza"
+                  fill
+                  className="object-cover transition-transform duration-1000 group-hover:scale-110"
+                  priority
                 />
               </div>
             </div>
           </div>
-
-          {/* Content - Right Side */}
-          <div className="flex flex-col justify-center space-y-8 md:space-y-10 order-1 md:order-2">
-            {/* Agent Name and Title */}
-            <div className="space-y-4">
-              <div className="inline-block">
-                <span className="text-xs sm:text-sm font-semibold text-accent tracking-widest uppercase">
-                  Luxury Real Estate Specialist
-                </span>
-              </div>
-              <h1 className="text-5xl sm:text-6xl md:text-7xl font-light text-foreground leading-tight tracking-tighter">
-                FARHA <span className="font-semibold text-accent">N MIRZA</span>
-              </h1>
-            </div>
-
-            {/* Value Statement */}
-            <p className="text-lg sm:text-xl text-foreground/70 leading-relaxed max-w-xl font-light">
-              Specializing in Dubai's most prestigious properties. I deliver expert guidance, integrity, and
-              personalized service to help you find your perfect home.
-            </p>
-
-            {/* CTAs */}
-            <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <a
-                href="tel:+971503466464"
-                className="px-8 py-4 bg-primary text-primary-foreground rounded-xl font-semibold text-center hover:shadow-lg hover:bg-primary/90 transition-all duration-300 active:scale-95 flex items-center justify-center gap-3"
-              >
-                <Phone size={20} />
-                Call Now
-              </a>
-              <a
-                href="https://wa.me/971503466464"
-                className="px-8 py-4 border-2 border-primary text-primary rounded-xl font-semibold text-center hover:bg-primary/5 transition-all duration-300 active:scale-95 flex items-center justify-center gap-3"
-              >
-                <MessageCircle size={20} />
-                WhatsApp
-              </a>
-            </div>
-
-            {/* Social Links */}
-            <div className="flex gap-6 pt-4">
-              <a
-                href="https://www.instagram.com/aliya_adean?igsh=MTUybXczOGRzMXNzdg=="
-                aria-label="Instagram"
-                className="text-foreground/50 hover:text-accent transition-colors duration-300 flex items-center gap-2"
-              >
-                <Instagram size={20} />
-                <span className="text-sm font-medium">Instagram</span>
-              </a>
-              <a
-                href="https://www.linkedin.com/in/farha-n-162477114"
-                aria-label="LinkedIn"
-                className="text-foreground/50 hover:text-accent transition-colors duration-300 flex items-center gap-2"
-              >
-                <Linkedin size={20} />
-                <span className="text-sm font-medium">LinkedIn</span>
-              </a>
-              <a
-                href="https://deenpropertiesuae.com"
-                aria-label="WhatsApp Direct"
-                className="text-foreground/50 hover:text-accent transition-colors duration-300 flex items-center gap-2"
-              >
-                <Globe size={20} />
-                <span className="text-sm font-medium">Website</span>
-              </a>
-            </div>
-          </div>
         </div>
       </div>
+
+      <style jsx global>{`
+        @keyframes float {
+          0%,
+          100% {
+            transform: translateY(0px);
+          }
+          50% {
+            transform: translateY(-20px);
+          }
+        }
+        @keyframes bounce-slow {
+          0%,
+          100% {
+            transform: translateY(0px) rotate(0deg);
+          }
+          50% {
+            transform: translateY(-10px) rotate(5deg);
+          }
+        }
+        .animate-float {
+          animation: float 6s ease-in-out infinite;
+        }
+        .animate-bounce-slow {
+          animation: bounce-slow 8s ease-in-out infinite;
+        }
+      `}</style>
     </section>
-  )
+  );
 }
+export { HeroSection as Hero };

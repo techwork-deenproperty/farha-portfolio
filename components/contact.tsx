@@ -1,120 +1,89 @@
 "use client"
+import React from 'react';
+import { Phone, Mail, MessageCircle, Building2, ArrowUpRight } from 'lucide-react';
 
-import { MessageCircle  ,Phone, Mail, MapPin } from "lucide-react"
+const contactMethods = [
+  {
+    title: "Call Direct",
+    description: "Phone line available during business hours",
+    info: "+971 50 346 6464",
+    link: "tel:+971503466464",
+    icon: <Phone size={24} strokeWidth={1.5} />,
+  },
+  {
+    title: "Email",
+    description: "Send detailed inquiries",
+    info: "f.mirza@deenpropertiesuae.com",
+    link: "mailto:f.mirza@deenpropertiesuae.com",
+    icon: <Mail size={24} strokeWidth={1.5} />,
+  },
+  {
+    title: "WhatsApp",
+    description: "Preferred method for quick responses",
+    info: "+971 50 346 6464",
+    link: "https://wa.me/971503466464",
+    icon: <MessageCircle size={24} strokeWidth={1.5} />,
+  },
+  {
+    title: "Deen Properties",
+    description: "Company contact number",
+    info: "+971 50 885 8144",
+    link: "tel:+971508858144",
+    icon: <Building2 size={24} strokeWidth={1.5} />,
+  }
+];
 
-export function Contact() {
+export default function ContactSection() {
   return (
-    <section id="contact" className="w-full py-20 md:py-28 lg:py-32 bg-secondary/5 overflow-hidden">
-      <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
-        {/* Section Header */}
-        <div className="mb-16 md:mb-20">
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-light text-primary leading-tight">
-            Get In <span className="font-semibold">Touch</span>
+    <section className="py-24 bg-[#f8fafc]">
+      <div className="container mx-auto max-w-7xl px-6">
+        
+        {/* Top Header */}
+        <div className="text-center mb-16 space-y-4">
+          <span className="text-[11px] font-bold uppercase tracking-[0.3em] text-indigo-600">
+            Get In Touch
+          </span>
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 tracking-tight max-w-3xl mx-auto leading-tight">
+            Direct consultation for your <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-teal-500">Property Needs</span>
           </h2>
-          <p className="text-base sm:text-lg text-foreground/70 font-light mt-4 max-w-2xl">
-            Reach out directly for a consultation about your property needs
-          </p>
         </div>
 
-        {/* Contact Options Grid */}
-<div className="grid md:grid-cols-4 gap-6 md:gap-8">
+        {/* Contact Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+          {contactMethods.map((method, index) => (
+            <a
+              key={index}
+              href={method.link}
+              target={method.link.startsWith('http') ? '_blank' : undefined}
+              rel={method.link.startsWith('http') ? 'noopener noreferrer' : undefined}
+              className="group flex flex-col sm:flex-row items-start sm:items-center gap-6 p-8 bg-white rounded-2xl border border-slate-200/60 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-out cursor-pointer"
+            >
+              {/* Icon Container */}
+              <div className="flex-shrink-0 w-14 h-14 flex items-center justify-center rounded-xl bg-slate-50 text-indigo-600 group-hover:bg-indigo-600 group-hover:text-white transition-colors duration-300">
+                {method.icon}
+              </div>
 
-  {/* Call Direct */}
-  <a
-    href="tel:+971503466464"
-    className="group flex flex-col items-start p-6 sm:p-8 rounded-lg border border-border bg-card hover:border-accent hover:bg-accent/2 transition-all duration-300"
-  >
-    <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center mb-4 group-hover:bg-accent group-hover:text-accent-foreground transition-colors duration-300">
-      <Phone className="w-6 h-6" />
-    </div>
-    <h3 className="text-lg font-semibold text-primary mb-1">Call Direct</h3>
-    <p className="text-sm text-foreground/60 mb-4">
-      Phone line available during business hours
-    </p>
-    <p className="text-base sm:text-lg font-semibold text-primary group-hover:text-accent transition-colors">
-      +971 50 346 6464
-    </p>
-  </a>
-
-  
-  {/* Email */}
-  <a
-    href="mailto:f.mirza@deenpropertiesuae.com"
-    className="group flex flex-col items-start p-6 sm:p-8 rounded-lg border border-border bg-card hover:border-accent hover:bg-accent/2 transition-all duration-300"
-  >
-    <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center mb-4 group-hover:bg-accent group-hover:text-accent-foreground transition-colors duration-300">
-      <Mail className="w-6 h-6" />
-    </div>
-    <h3 className="text-lg font-semibold text-primary mb-1">Email</h3>
-    <p className="text-sm text-foreground/60 mb-4">
-      Send detailed inquiries
-    </p>
-    <p className="text-base sm:text-lg font-semibold text-primary group-hover:text-accent transition-colors break-all">
-      f.mirza@deenpropertiesuae.com
-    </p>
-  </a>
-
-  {/* WhatsApp */}
-  <a
-    href="https://wa.me/971503466464"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="group flex flex-col items-start p-6 sm:p-8 rounded-lg border border-border bg-card hover:border-accent hover:bg-accent/2 transition-all duration-300"
-  >
-    <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center mb-4 group-hover:bg-accent group-hover:text-accent-foreground transition-colors duration-300">
-      <MessageCircle className="w-6 h-6" />
-    </div>
-    <h3 className="text-lg font-semibold text-primary mb-1">WhatsApp</h3>
-    <p className="text-sm text-foreground/60 mb-4">
-      Preferred method for quick responses
-    </p>
-    <p className="text-base sm:text-lg font-semibold text-primary group-hover:text-accent transition-colors">
-      +971 50 346 6464
-    </p>
-  </a>
-
-
-  {/* Deen Properties – Company Number */}
-  <a
-    href="tel:+971508858144"
-    className="group flex flex-col items-start p-6 sm:p-8 rounded-lg border border-border bg-card hover:border-accent hover:bg-accent/2 transition-all duration-300"
-  >
-    <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center mb-4 group-hover:bg-accent group-hover:text-accent-foreground transition-colors duration-300">
-      <Phone className="w-6 h-6" />
-    </div>
-    <h3 className="text-lg font-semibold text-primary mb-1">
-      Deen Properties
-    </h3>
-    <p className="text-sm text-foreground/60 mb-4">
-      Company contact number
-    </p>
-    <p className="text-base sm:text-lg font-semibold text-primary group-hover:text-accent transition-colors">
-      +971 50 885 8144
-    </p>
-  </a>
-
-</div>
-
-
-        {/* Office Location */}
-        <div className="mt-16 md:mt-20 pt-16 md:pt-20 border-t border-border">
-          <div className="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-8">
-            <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0">
-              <MapPin className="w-6 h-6 text-accent" />
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold text-primary mb-2">Office Location</h3>
-              <p className="text-foreground/75 font-light leading-relaxed">
-                <span className="font-semibold">Deen Properties</span>
-                <br className="hidden sm:block" />
-                B2B Office Tower - Office Number -1513 - 1514 Marasi Dr - Business Bay - Dubai - United Arab Emirates
-                <br className="hidden sm:block" />
-                <span className="text-sm text-foreground/60 mt-2 block">Office: +971 50 885 8144</span>
-              </p>
-            </div>
-          </div>
+              {/* Content */}
+              <div className="flex-grow space-y-1">
+                <div className="flex items-center justify-between">
+                  <h3 className="text-lg font-bold text-slate-900 tracking-tight">
+                    {method.title}
+                  </h3>
+                  <ArrowUpRight size={18} className="text-slate-300 group-hover:text-teal-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300" />
+                </div>
+                <p className="text-slate-500 text-sm font-light">
+                  {method.description}
+                </p>
+                <p className="text-slate-900 font-semibold pt-1">
+                  {method.info}
+                </p>
+              </div>
+            </a>
+          ))}
         </div>
+        
       </div>
     </section>
-  )
+  );
 }
+export { ContactSection as Contact };
