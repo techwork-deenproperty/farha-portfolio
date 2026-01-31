@@ -31,16 +31,16 @@ const StatCard = ({ label, value, suffix, icon }: StatCardProps) => {
   }, [value]);
 
   return (
-    <div className="group relative p-8 rounded-[2.5rem] bg-white border border-slate-200/60 shadow-sm hover:shadow-xl hover:shadow-indigo-500/5 transition-all duration-500">
-      <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
+    <div className="group relative p-8 rounded-[2.5rem] bg-white border border-[#E8D9A8]/30 shadow-sm hover:shadow-xl hover:shadow-[#C6A75E]/5 transition-all duration-500">
+      <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity text-[#C6A75E]">
         {icon}
       </div>
       <div className="relative z-10">
-        <div className="text-4xl md:text-5xl font-bold tracking-tight text-slate-900 mb-2">
+        <div className="text-4xl md:text-5xl font-bold tracking-tight text-[#2C2620] mb-2">
           {count}
           {suffix}
         </div>
-        <p className="text-sm font-semibold uppercase tracking-widest text-slate-400 group-hover:text-indigo-600 transition-colors">
+        <p className="text-sm font-semibold uppercase tracking-widest text-[#A39E8F] group-hover:text-[#C6A75E] transition-colors">
           {label}
         </p>
       </div>
@@ -57,33 +57,29 @@ export default function AboutSection() {
   ];
 
   return (
-    <section className="relative py-24 bg-[#f8fafc] overflow-hidden">
+    <section className="relative py-24 bg-gradient-to-b from-[#FAF7F2] via-[#F3EBDD] to-[#E8DFC9] overflow-hidden">
       {/* Background Consistency Elements */}
-      <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[500px] h-[500px] bg-indigo-50/40 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[500px] h-[500px] bg-[#E8D9A8]/20 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="container mx-auto max-w-7xl px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
           {/* LEFT SIDE: Narrative */}
           <div className="lg:col-span-5 space-y-10">
             <div className="space-y-6">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 border border-indigo-100/50">
-                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-indigo-600">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FAF7F2] border border-[#E8D9A8]/40">
+                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#BFA76A]">
                   The Advisor
                 </span>
               </div>
 
-              <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-slate-900 leading-[1.1]">
+              <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-[#2C2620] leading-[1.1]">
                 A Legacy of <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-teal-500">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C6A75E] via-[#E8D9A8] to-[#B8963D]">
                   Trust & Excellence
                 </span>
               </h2>
 
-              {/* <p className="text-lg text-slate-500 leading-relaxed font-light italic border-l-2 border-indigo-200 pl-6">
-                &quot;Real estate isn&apos;t just about space; it&apos;s about the narrative of one&apos;s life. I specialize in finding the stage where your next chapter begins.&quot;
-              </p> */}
-
-              <p className="text-slate-500 leading-relaxed">
+              <p className="text-[#5C584D] leading-relaxed font-light">
                 With over a decade of navigating Dubai&apos;s most complex
                 high-value transactions, Farha N Mirza has become the silent
                 force behind some of the region&apos;s most significant
@@ -97,12 +93,12 @@ export default function AboutSection() {
               {features.map((item, idx) => (
                 <div
                   key={idx}
-                  className="flex items-center gap-3 p-4 rounded-2xl bg-slate-50 border border-slate-100 hover:border-indigo-200 transition-colors group"
+                  className="flex items-center gap-3 p-4 rounded-2xl bg-white/50 border border-[#E8D9A8]/20 hover:border-[#C6A75E]/50 transition-colors group"
                 >
-                  <div className="text-indigo-500 group-hover:scale-110 transition-transform">
+                  <div className="text-[#C6A75E] group-hover:scale-110 transition-transform">
                     {item.icon}
                   </div>
-                  <span className="text-sm font-semibold text-slate-700">
+                  <span className="text-sm font-semibold text-[#4A463B]">
                     {item.title}
                   </span>
                 </div>
@@ -114,20 +110,20 @@ export default function AboutSection() {
           <div className="lg:col-span-7">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 relative">
               {/* Decorative floating element */}
-              <div className="absolute -top-12 -right-12 w-64 h-64 bg-teal-50/50 rounded-full blur-3xl -z-10" />
+              <div className="absolute -top-12 -right-12 w-64 h-64 bg-[#E8D9A8]/30 rounded-full blur-3xl -z-10" />
 
               <div className="space-y-6 pt-12">
                 <StatCard
                   label="Properties Sold"
                   value={500}
                   suffix="+"
-                  icon={<Trophy className="text-indigo-600" size={48} />}
+                  icon={<Trophy size={48} />}
                 />
                 <StatCard
                   label="Premium Listings"
                   value={100}
                   suffix="+"
-                  icon={<Award className="text-teal-500" size={48} />}
+                  icon={<Award size={48} />}
                 />
               </div>
 
@@ -136,25 +132,25 @@ export default function AboutSection() {
                   label="Years Experience"
                   value={12}
                   suffix="+"
-                  icon={<Sparkles className="text-indigo-400" size={48} />}
+                  icon={<Sparkles size={48} />}
                 />
                 <StatCard
                   label="Happy Clients"
                   value={1000}
                   suffix="+"
-                  icon={<Users className="text-slate-400" size={48} />}
+                  icon={<Users size={48} />}
                 />
               </div>
 
-              {/* Bottom Decorative Glass Card */}
-              <div className="sm:col-span-2 mt-6 p-8 rounded-[2.5rem] bg-gradient-to-r from-slate-900 to-indigo-950 text-white flex flex-col md:flex-row items-center justify-between gap-6 overflow-hidden relative group">
-                <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10" />
+              {/* Bottom Decorative CTA Card */}
+              <div className="sm:col-span-2 mt-6 p-8 rounded-[2.5rem] bg-gradient-to-r from-[#2C2620] to-[#3A332B] text-white flex flex-col md:flex-row items-center justify-between gap-6 overflow-hidden relative group">
+                <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-5" />
 
                 <div className="relative z-10">
-                  <h3 className="text-xl font-bold mb-1">
+                  <h3 className="text-xl font-bold mb-1 text-[#F3EBDD]">
                     Ready to find your masterpiece?
                   </h3>
-                  <p className="text-indigo-200/70 text-sm font-light">
+                  <p className="text-[#A39E8F] text-sm font-light">
                     Join our exclusive network of global investors.
                   </p>
                 </div>
@@ -165,7 +161,7 @@ export default function AboutSection() {
                   rel="noopener noreferrer"
                   className="relative z-10"
                 >
-                  <button className="px-8 py-3 bg-white text-slate-900 font-bold rounded-xl hover:bg-teal-400 hover:text-white transition-all duration-300 transform group-hover:translate-x-1">
+                  <button className="px-8 py-3 bg-[#C6A75E] text-white font-bold rounded-xl hover:bg-[#E8D9A8] hover:text-[#2C2620] transition-all duration-300 transform group-hover:translate-x-1 shadow-lg shadow-black/20">
                     Start Conversation
                   </button>
                 </a>
